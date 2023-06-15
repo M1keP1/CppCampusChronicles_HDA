@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 
 void printAddress(const int* variable) {
     std::cout << "Address: " << variable << std::endl;
@@ -15,8 +15,8 @@ int main() {
 
     return 0;
 }
+*/
 
-/*
 
 #include <iostream>
 #include <new>
@@ -34,4 +34,3 @@ int main() {
     return 0;
 }
 
-*/
