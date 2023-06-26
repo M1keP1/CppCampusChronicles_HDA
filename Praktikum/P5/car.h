@@ -10,7 +10,9 @@ using std::string;
 const string noname{ "<>" }; // globale Konstante 
 
 class car
-{public:
+{
+  
+  public:
 car();
  explicit car(string);
 
@@ -21,12 +23,15 @@ string get_name() const ;
 static car* sget_last() ;
 
 virtual void print() const = 0; 
+
+
 private:
 string name;
 static car*last;
 car*next;
 
 };
+
 class Van : public car
 {
     public:
@@ -35,11 +40,15 @@ Van(string , int ,int );
 void print() const;
 int getdoors() const;
 int getmileage()const;
+
+
 private:
 int doors;
 int mileage;
 
 };
+
+
 class sportscar:public car
 {
 public:
