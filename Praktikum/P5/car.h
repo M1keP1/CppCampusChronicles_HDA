@@ -32,7 +32,7 @@ car*next;
 
 };
 
-class Van : public car
+class Van : public car //inherit from car
 {
     public:
 Van();
@@ -62,7 +62,7 @@ int horsepower;
 
 };
 
-class  suv : public sportscar
+class  suv : public sportscar  //inherit frm sportscar
 { public:
     suv();
     

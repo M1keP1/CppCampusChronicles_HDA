@@ -19,7 +19,7 @@ myvector &myvector::operator=(const myvector &other)
         return *this;
     if (other.sz <= space)
     {
-        for (int i{}; i < other.sz; i++)
+        for (int i{0}; i < other.sz; i++)
         {
             elem[i] = other.elem[i];
             sz = other.sz;
