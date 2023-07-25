@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include "fpt.h"
+
 using std::string;
 using namespace std;
 
@@ -33,3 +34,4 @@ void Liwanze::print()
     }
     std::cout << std::endl;
 }
+

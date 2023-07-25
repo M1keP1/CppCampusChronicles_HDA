@@ -26,6 +26,9 @@ class Liwanze
     Liwanze(const std::string& name, Region loc = Region::ndef);
     string get_name() const;
     Region get_loc() const;
+
+    void add_Liwanze() const;
+
     void print();
 
 
@@ -35,6 +38,8 @@ class Liwanze
     Region loc;
 
 };
+
+
 
 
 #endif
