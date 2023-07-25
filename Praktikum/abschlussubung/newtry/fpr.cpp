@@ -1,15 +1,16 @@
-#include "fp.h"
 #include <iostream>
+#include <string>
+#include <vector>
+#include "fpt.h"
 using std::string;
 using namespace std;
 
-Liwanze::Liwanze() : name{"noname"}, loc{Region::ndef} {}
 
+Liwanze::Liwanze(): name{"noname"}, loc{Region::ndef}{}
 
+std::string Liwanze::get_name() const {return name;}
 
-std::string Liwanze::get_name() const { return name; }
-
-Liwanze::Region Liwanze::get_loc() const { return loc; }
+Liwanze::Region Liwanze::get_loc() const { return loc;}
 
 void Liwanze::print() 
 {
