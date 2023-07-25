@@ -35,3 +35,38 @@ void Liwanze::print()
     std::cout << std::endl;
 }
 
+bool Liwanze::connects(string connectsto)
+{
+    for(int i{0};i<connects_to.size();i++)
+    {
+        if (connectsto == connects_to.at(i)){return true;}
+    }
+}
+
+bool Liwanze::connected(string connectsfrom)
+{
+    for(int i{0};i<connects_from.size();i++)
+    {
+        if (connectsfrom == connects_from.at(i)){return true;}
+    }
+}
+
+void Liwanze::init_connections()
+{
+    
+}
+
+void Liwanze::print_tierone()
+{
+
+}
+
+bool Liwanze::addconn_to(string)
+{
+
+}
+
+bool Liwanze::addconn_from(string)
+{
+
+}

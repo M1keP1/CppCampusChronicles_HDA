@@ -31,11 +31,23 @@ class Liwanze
 
     void print();
 
+    bool connects(string);
+    bool connected(string);
+    void print_tierone();
+    bool addconn_to(string);
+    bool addconn_from(string);
+    void init_connections();
+    
+
 
     private:
 
     string name{};
     Region loc;
+
+    vector <string> connects_to;
+    vector <string>connects_from;
+
 
 };
 
