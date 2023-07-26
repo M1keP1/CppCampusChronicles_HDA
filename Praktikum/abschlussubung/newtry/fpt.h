@@ -36,7 +36,9 @@ class Liwanze
     void print_tierone();
     bool addconn_to(string);
     bool addconn_from(string);
-    void init_connections();
+    void init_connections(vector<Liwanze> &vL);
+    void make_conn(string,string,Liwanze);
+    void add_Liwanze();
     
 
 
