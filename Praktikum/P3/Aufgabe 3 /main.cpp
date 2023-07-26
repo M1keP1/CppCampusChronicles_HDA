@@ -73,6 +73,15 @@ int main() try
 
     return 0;
 }
+    
+void print_all() const {
+cout << "Werte für " << abbreviation << " (" << name << "): ";
+for (int value : values)
+{
+cout << value << " ";
+}
+cout << endl;
+}
 
 catch( std::exception& e ) {
     cerr << "Ausnahme" << e.what() << endl;
