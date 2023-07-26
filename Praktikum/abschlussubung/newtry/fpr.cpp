@@ -89,10 +89,122 @@ void Liwanze::init_connections(vector<Liwanze>&vL)
     
     
 }
-void add_Liwanze()
+
+/*
+void add_connection()
 {
+string input{};
+string input2{};
+string name{};
+bool isregistered1{false};
+bool isregistered2{false};
+bool isregio{false};
+int name1{};
+	int name2{};
+
+std::vector<Liwanze> vl2{};
+	while (true) {
+		isregio = false;
+		std::cout << "Geben sie einen Namen ein" << std::endl;
+		std::cin >> name;
+		
+		if (name == "q" || name == "Q")
+		{
+
+			break;
+		}
+		std::cout << "Geben sie eine Region ein" << std::endl;
+		std::cin >> input;
+		
+		if (input == "q" || input == "Q")
+		{
+
+			break;
+		}
+		for (int i{}; i < regio.size(); i++) {
+			if (input == regio.at(i))
+			{
+				isregio = true;
+			}
+		}
+		if (isregio == false) {
+			std::cout << "Bitte geben sie eine gueltige Region ein" << std::endl;
+			continue;
+		}
+		vl2.push_back(name, Liwanze::Region{}, {}, {});
+
+	}
+while (true) {
+		std::cout << "Geben sie zwei Namen für eine verbindung  ein" << std::endl;
+		std::cin >> input;
+		
+		if (input == "q" || input == "Q")
+		{
+			break;
+		}
+		std::cin >> input2;
+		
+		if (input2 == "q" || input2 == "Q")
+		{
+			break;
+		}
+		for (unsigned int i{ 0 }; i < vl2.size(); i++) {
+			if (input == vl2.at(i).get_name())
+			{
+				isregistered1 = true;
+				break;
+			}
+
+		}
+		for (unsigned int i{ 0 }; i < vl2.size(); i++) {
+			if (input2 == vl2.at(i).get_name())
+			{
+				isregistered2 = true;
+				break;
+			}
+
+		}
+		if (isregistered1 == false || isregistered2 == false)
+		{
+			std::cout << "Bitt geben sie einen regestrieten Wert ein" << std::endl;
+			isregistered1 = true;
+			isregistered2 = true;
+			continue;
+		}
+		if (input == input2)
+		{
+			std::cout << "Bitte geben nich die gleiche Namen ein" << std::endl;
+			continue;
+		}
+
+
+		for (unsigned int i{ 0 }; i < vl2.size(); i++) {
+			if (input == vl2.at(i).get_name())
+			{
+				name1 = i;
+			}
+
+			if (input2 == vl2.at(i).get_name())
+			{
+				name2 = i;
+			}
+		}
+		if (vl2.at(name1).connects(vl2.at(name2).get_name()) || vl2.at(name2).connected(vl2.at(name1).get_name())) {
+			std::cout << "Bitte geben nicht schon eine bestehende connection ein" << std::endl;
+
+			continue;
+		}
+		make_connection(input, input2, vl2);
+		std::cout << std::endl << "Sie haben eine neue Verbindung erstellt" << std::endl;
+		vl2.at(name1).print_tierone();
+		std::cout << std::endl;
+		vl2.at(name2).print_tierone();
+
+	}
+
 
 }
+*/
 
 
 
