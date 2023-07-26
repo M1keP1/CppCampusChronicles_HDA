@@ -1,5 +1,5 @@
-#ifndef fpt.h
-#define fpt.h
+#ifndef FPT H
+#define FPT H
 
 #include <iostream>
 #include <string>
@@ -39,6 +39,7 @@ class Liwanze
     void init_connections(vector<Liwanze> &vL);
     void make_conn(string,string,Liwanze);
     void add_Liwanze();
+    
     
 
 

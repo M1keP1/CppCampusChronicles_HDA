@@ -51,6 +51,12 @@ int main()try
         Liwanze("Sheena", Liwanze::Region::amer)};
 
     
+    Liwanze kk;
+
+    kk.init_connection(vL);
+    print_connections(vL);
+    kk.print_tierone();
+    
 
     return 0;
 }

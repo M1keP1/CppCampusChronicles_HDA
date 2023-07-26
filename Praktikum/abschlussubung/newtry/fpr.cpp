@@ -41,6 +41,7 @@ bool Liwanze::connects(string connectsto)
     {
         if (connectsto == ct){return true;}
     }
+    return false;
 }
 
 bool Liwanze::connected(string connectsfrom)
@@ -49,6 +50,7 @@ bool Liwanze::connected(string connectsfrom)
     {
         if (connectsfrom == cf){return true;}
     }
+    return false;
 }
 
 
@@ -86,8 +88,57 @@ void make_conn(string x,string y,vector<Liwanze> &vL)
     
 void Liwanze::init_connections(vector<Liwanze>&vL)
 {
+    make_connection("DeeDee", "Sheena", vl);
+    make_connection("Joey", "DeeDee", vl);
+    make_connection("Joey", "Johnny", vl);
+    make_connection("Joey", "Sheena", vl);
+    make_connection("Joey", "Suzy", vl);
+    make_connection("Suzy", "Joey", vl);
+    make_connection("Sheena", "Joey", vl);
+    make_connection("Suzy", "Sheena", vl);
     
-    
+}
+
+void print_connections(std::vector<Liwanze> vl)
+{
+    for (int i{0}; i < vl.size(); i++)
+    {
+
+        std::cout << "Der Nutzer: " << vl.at(i).get_name() << " hat folgende Connections: \n";
+        vl.at(i).print_tierone();
+        std::cout << std::endl;
+        std::cout << "--------------------------------";
+        std::cout << std::endl;
+    }
+}
+
+
+
+void Liwanze::print_tierone()
+{
+
+    int connectionsto{0};
+    int connectionsfrom{0};
+    std::cout << " Das Mitglieg: " << get_name() << " hat folgende Connections: " << std::endl;
+    for (unsigned int i{0}; i < connects_to.size(); i++)
+    {
+        std::cout << " Connected to ";
+        std::cout << connects_to.at(i) << std::endl;
+        connectionsto++;
+    }
+    std::cout << connectionsto << " Connctions to in total" << std::endl;
+    std::cout << std::endl;
+    for (unsigned int i{0}; i < connects_from.size(); i++)
+    {
+        std::cout << " Connected from ";
+        std::cout << connects_from.at(i) << std::endl;
+        connectionsfrom++;
+    }
+    std::cout << connectionsfrom << " Connctions from in total" << std::endl;
+
+    std::cout << std::endl;
+    std::cout << "--------------------------------";
+    std::cout << std::endl;
 }
 
 /*
@@ -208,7 +259,3 @@ while (true) {
 
 
 
-void Liwanze::print_tierone()
-{
-
-}
