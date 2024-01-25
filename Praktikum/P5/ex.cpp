@@ -25,8 +25,9 @@ int sum(int k) {
 int main() {
   
   fruit mango;
-  mango.color{"yellow"};
-  mango.num{15};
+  fruit:mango.color="yellow";
+  mango.num=15;
+  std::cout<< mango.num << mango.color <<endl;
   return 0;
 }
 
