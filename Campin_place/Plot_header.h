@@ -18,6 +18,7 @@ public:
 
     double get_costPerNight();
     void set_costPerNight(double costPerNight);
+    void get_bookings();
 
 
 

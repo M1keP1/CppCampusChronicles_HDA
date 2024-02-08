@@ -20,6 +20,13 @@ double Plot::get_costPerNight()
     return costPerNight;
 }
 
+void Plot::get_bookings()
+{
+
+    cout << "ERR: I cant do this "<<endl;
+    //something here to print out bookings
+}
+
 void Plot::set_id(int id)
 {
     id=id;
@@ -45,9 +52,9 @@ bool Plot::bookingPossible(int from,int to,int visitors)
 void Plot::book(const Booking& b)
 {
 
-    if(bookingPossible(b.get_from(),b.get_to(),get_visitors())&& get_paid()) //add function call here to check if a booking is possible
+    if(bookingPossible(b.get_from(),b.get_to(),get_visitors()) && get_paid()) //add function call here to check if a booking is possible
     {
-        //add segment here to add booking
+        bookings.push_back(b);
     }
 }
 
