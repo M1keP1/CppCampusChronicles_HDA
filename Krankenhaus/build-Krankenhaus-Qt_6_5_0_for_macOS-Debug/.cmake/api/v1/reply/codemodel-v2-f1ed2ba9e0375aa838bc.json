@@ -1,0 +1,61 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-9f60f39c76996e51503b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Krankenhaus",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Krankenhaus::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Krankenhaus-Debug-d82b35ccc989ec0abfc1.json",
+					"name" : "Krankenhaus",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/codex/Documents/GitHub/PG1_H-da/Krankenhaus/build-Krankenhaus-Qt_6_5_0_for_macOS-Debug",
+		"source" : "/Users/codex/Documents/GitHub/PG1_H-da/Krankenhaus/Krankenhaus"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
