@@ -109,8 +109,10 @@ void Krankenhaus:: time(vector<Patient> p0,int tagen_verpasst)
         if(p1.get_dauer()-tagen_verpasst<=0)
         {
             p1.set_diagnostyp(diagnose::geheilt);
+
         }
     }
 
 }
+void
 

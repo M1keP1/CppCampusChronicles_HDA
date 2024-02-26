@@ -72,6 +72,7 @@ public:
     void removePatient();
     int get_bett();
     void diagnos_updater();
+    void get_healedpatient();
 };
 
 #endif // PATIENT_H_H
