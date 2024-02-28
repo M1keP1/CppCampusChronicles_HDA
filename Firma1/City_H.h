@@ -1,6 +1,11 @@
+//Created by Mihir on 28.02.2024
+
+
 #ifndef CITY_H_H
 #define CITY_H_H
 #include<iostream>
+#include <vector>
+
 
 using namespace std;
 
@@ -19,6 +24,7 @@ public:
     void addinhabitant(Human* inhabitant );
     void addcompany(Company* company);
     string get_name();
+    string get_human_name();
 
 
 };

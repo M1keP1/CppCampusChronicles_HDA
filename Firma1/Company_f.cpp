@@ -1,3 +1,5 @@
+//Created by Mihir on 28.02.2024
+
 #include"Company_H.h"
 
 
@@ -13,3 +15,19 @@ string Company::get_name()
 {
     return name;
 }
+int Company::calculate_expense()
+{
+    for(auto& h2:employees)
+    {
+        totalexpense+=h2->get_gehalt();
+    }
+    return 0;
+}
+
+int Company::get_employees()
+{
+
+
+    return employees.size();
+}
+

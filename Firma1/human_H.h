@@ -1,3 +1,5 @@
+//Created by Mihir on 28.02.2024
+
 #ifndef HUMAN_H_H
 #define HUMAN_H_H
 #include "City_H.h"
@@ -8,7 +10,8 @@ class Company;
 
 enum class sex{
     attackhelicopter,
-    pan
+    pan,
+    female,male
 
 
 };
@@ -20,6 +23,7 @@ private:
     city* City;
     sex gender;
     Company* employer;
+    int workdays{};
 
 public:
     Human();
@@ -28,7 +32,10 @@ public:
     void movetocity(city* newcity);
     void workat(Company* company);
     void printdata();
+    string getname();
     string get_gendername();
+    int virtual get_gehalt();
+    Company* get_company();
 
 };
 

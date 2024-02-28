@@ -1,4 +1,6 @@
 #include"City_H.h"
+#include"human_H.h"
+class Human;
 
 void city:: addinhabitant(Human* inhabitant)
 {
@@ -11,4 +13,15 @@ void city::addcompany(Company* company)
 string city::get_name()
 {
     return name;
+}
+string city::get_human_name()
+{
+    string human_name{};
+    for(auto& h3:inhabitants)
+    {
+        human_name=h3->getname();
+        return human_name;
+    }
+    return "name error";
+
 }

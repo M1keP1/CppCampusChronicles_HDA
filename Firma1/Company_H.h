@@ -1,6 +1,9 @@
+//Created by Mihir on 28.02.2024
+
 #ifndef COMPANY_H_H
 #define COMPANY_H_H
 #include"human_H.h"
+#include <vector>
 enum class sector{
 
 };
@@ -14,6 +17,8 @@ private:
     sector sectortyp;
     vector<city*> locations;
     vector<Human*> employees;
+    int totalexpense{};
+
 
 public:
 
@@ -22,6 +27,8 @@ public:
     void addLocation(city* location);
     void employ(Human* employee);
     string get_name();
+    int calculate_expense();
+    int get_employees();
 };
 
 
