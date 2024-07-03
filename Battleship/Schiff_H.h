@@ -28,6 +28,11 @@ private:
 
 public:
     Schiffteil();
+    inline void setReihe(int newReihe)
+    {
+        m_reihe = newReihe;
+    }
+
     Schiffteil(int reihe,int spalte,Status status):m_reihe(reihe),m_spalte(spalte),m_status(status){}
 
     int get_reihe();
@@ -35,6 +40,7 @@ public:
     Status get_status();
     void set_status(Status stat);
 
+    void setReihe(int newReihe);
 };
 
 #endif // SCHIFF_H_H
