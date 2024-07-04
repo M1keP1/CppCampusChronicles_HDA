@@ -1,0 +1,200 @@
+## This file contains all the build statements describing the
+# compilation DAG.
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# 
+# Which is the root file.
+# =============================================================================
+
+# =============================================================================
+# Project: Magazine_SubscriptionSys
+# Configurations: Debug
+# =============================================================================
+
+#############################################
+# Minimal version of Ninja required by this file
+
+ninja_required_version = 1.5
+
+
+#############################################
+# Set configuration variable for custom commands.
+
+CONFIGURATION = Debug
+# =============================================================================
+# Include auxiliary files.
+
+
+#############################################
+# Include rules file.
+
+include CMakeFiles/rules.ninja
+
+# =============================================================================
+
+#############################################
+# Logical path to working directory; prefix for absolute paths.
+
+cmake_ninja_workdir = /Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug/
+# =============================================================================
+# Object build statements for EXECUTABLE target Magazine_SubscriptionSys
+
+
+#############################################
+# Order-only phony target for Magazine_SubscriptionSys
+
+build cmake_object_order_depends_target_Magazine_SubscriptionSys: phony || CMakeFiles/Magazine_SubscriptionSys.dir
+
+build CMakeFiles/Magazine_SubscriptionSys.dir/main.cpp.o: CXX_COMPILER__Magazine_SubscriptionSys_Debug /Users/codex/Documents/GitHub/CppCampusChronicles_HDA/Magazine_SubscriptionSys/main.cpp || cmake_object_order_depends_target_Magazine_SubscriptionSys
+  DEP_FILE = CMakeFiles/Magazine_SubscriptionSys.dir/main.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++17
+  OBJECT_DIR = CMakeFiles/Magazine_SubscriptionSys.dir
+  OBJECT_FILE_DIR = CMakeFiles/Magazine_SubscriptionSys.dir
+
+build CMakeFiles/Magazine_SubscriptionSys.dir/zeitungsverlag.cpp.o: CXX_COMPILER__Magazine_SubscriptionSys_Debug /Users/codex/Documents/GitHub/CppCampusChronicles_HDA/Magazine_SubscriptionSys/zeitungsverlag.cpp || cmake_object_order_depends_target_Magazine_SubscriptionSys
+  DEP_FILE = CMakeFiles/Magazine_SubscriptionSys.dir/zeitungsverlag.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++17
+  OBJECT_DIR = CMakeFiles/Magazine_SubscriptionSys.dir
+  OBJECT_FILE_DIR = CMakeFiles/Magazine_SubscriptionSys.dir
+
+build CMakeFiles/Magazine_SubscriptionSys.dir/zeitung.cpp.o: CXX_COMPILER__Magazine_SubscriptionSys_Debug /Users/codex/Documents/GitHub/CppCampusChronicles_HDA/Magazine_SubscriptionSys/zeitung.cpp || cmake_object_order_depends_target_Magazine_SubscriptionSys
+  DEP_FILE = CMakeFiles/Magazine_SubscriptionSys.dir/zeitung.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++17
+  OBJECT_DIR = CMakeFiles/Magazine_SubscriptionSys.dir
+  OBJECT_FILE_DIR = CMakeFiles/Magazine_SubscriptionSys.dir
+
+build CMakeFiles/Magazine_SubscriptionSys.dir/abonnent.cpp.o: CXX_COMPILER__Magazine_SubscriptionSys_Debug /Users/codex/Documents/GitHub/CppCampusChronicles_HDA/Magazine_SubscriptionSys/abonnent.cpp || cmake_object_order_depends_target_Magazine_SubscriptionSys
+  DEP_FILE = CMakeFiles/Magazine_SubscriptionSys.dir/abonnent.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++17
+  OBJECT_DIR = CMakeFiles/Magazine_SubscriptionSys.dir
+  OBJECT_FILE_DIR = CMakeFiles/Magazine_SubscriptionSys.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Magazine_SubscriptionSys
+
+
+#############################################
+# Link the executable Magazine_SubscriptionSys
+
+build Magazine_SubscriptionSys: CXX_EXECUTABLE_LINKER__Magazine_SubscriptionSys_Debug CMakeFiles/Magazine_SubscriptionSys.dir/main.cpp.o CMakeFiles/Magazine_SubscriptionSys.dir/zeitungsverlag.cpp.o CMakeFiles/Magazine_SubscriptionSys.dir/zeitung.cpp.o CMakeFiles/Magazine_SubscriptionSys.dir/abonnent.cpp.o
+  FLAGS = -DQT_QML_DEBUG -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
+  OBJECT_DIR = CMakeFiles/Magazine_SubscriptionSys.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Magazine_SubscriptionSys
+  TARGET_PDB = Magazine_SubscriptionSys.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug && /Users/codex/Qt/Tools/CMake/CMake.app/Contents/bin/ccmake -S/Users/codex/Documents/GitHub/CppCampusChronicles_HDA/Magazine_SubscriptionSys -B/Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug && /Users/codex/Qt/Tools/CMake/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/codex/Documents/GitHub/CppCampusChronicles_HDA/Magazine_SubscriptionSys -B/Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug && /Users/codex/Qt/Tools/CMake/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug && /Users/codex/Qt/Tools/CMake/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug && /Users/codex/Qt/Tools/CMake/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+# =============================================================================
+# Target aliases.
+
+# =============================================================================
+# Folder targets.
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug
+
+build all: phony Magazine_SubscriptionSys
+
+# =============================================================================
+# Built-in targets
+
+
+#############################################
+# Re-run CMake if any of its inputs changed.
+
+build build.ninja: RERUN_CMAKE | .qtc/package-manager/auto-setup.cmake /Users/codex/Documents/GitHub/CppCampusChronicles_HDA/Magazine_SubscriptionSys/CMakeLists.txt /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/AppleClang-CXX.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/Clang.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/GNU.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-AppleClang-CXX.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang-CXX.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Darwin.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake
+  pool = console
+
+
+#############################################
+# A missing CMake input file is not an error.
+
+build .qtc/package-manager/auto-setup.cmake /Users/codex/Documents/GitHub/CppCampusChronicles_HDA/Magazine_SubscriptionSys/CMakeLists.txt /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/AppleClang-CXX.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/Clang.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/GNU.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-AppleClang-CXX.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang-CXX.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Darwin.cmake /Users/codex/Qt/Tools/CMake/CMake.app/Contents/share/cmake-3.24/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake: phony
+
+
+#############################################
+# Clean all the built files.
+
+build clean: CLEAN
+
+
+#############################################
+# Print all primary targets available.
+
+build help: HELP
+
+
+#############################################
+# Make the all target the default.
+
+default all

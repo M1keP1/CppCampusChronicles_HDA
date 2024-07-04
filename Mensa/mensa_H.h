@@ -12,12 +12,8 @@ private:
 public:
     Meal();
     Meal(string name,double price,bool is_vegan):name(name),price(price),is_vegan(is_vegan){}
-    void printgericht()
-    {
-        cout<<"Name of gericht: "<<name<<endl;
-        cout<<"Price of gericht: "<<price<<endl;
-        cout<<"Is Vegan?: "<<is_vegan<<endl;
-    }
+    void printgericht();
+
 
 };
 

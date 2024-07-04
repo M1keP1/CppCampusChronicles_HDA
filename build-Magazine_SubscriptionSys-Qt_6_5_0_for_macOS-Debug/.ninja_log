@@ -1,0 +1,7 @@
+# ninja log v5
+1	54	1720084105711036639	build.ninja	dd85a20aad206e44
+0	573	1720084104898718557	CMakeFiles/Magazine_SubscriptionSys.dir/main.cpp.o	13931e6aff66e98d
+0	166	1720084104493435503	CMakeFiles/Magazine_SubscriptionSys.dir/zeitungsverlag.cpp.o	604109caf8989f22
+0	166	1720084104493436503	CMakeFiles/Magazine_SubscriptionSys.dir/abonnent.cpp.o	6dd5ef0fbba1e25
+0	166	1720084104493442669	CMakeFiles/Magazine_SubscriptionSys.dir/zeitung.cpp.o	205bb158cecdda62
+575	634	1720084104962690696	Magazine_SubscriptionSys	5be67fdec8c85aed
