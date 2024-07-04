@@ -1,0 +1,61 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-4f6aded98e56f64584a9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Insurance_Management",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Insurance_Management::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Insurance_Management-Debug-a7efe0cb38a28d28448d.json",
+					"name" : "Insurance_Management",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Insurance_Management-Qt_6_5_0_for_macOS-Debug",
+		"source" : "/Users/codex/Documents/GitHub/CppCampusChronicles_HDA/Insurance_Management"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
