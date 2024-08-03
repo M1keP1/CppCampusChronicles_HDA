@@ -31,9 +31,15 @@ void Wohnung::moebelHinzufuegen(int nummer)
     for(int i = 0; i<zimmerListe.size();i++)
     {
         if(zimmerListe[i]->getZimmernummer()==nummer)
-            zimmerListe[i]->addMoebel();
+        {
+        string moebel_name{};
+        cout<<"Enter Moebel name?"<<endl;
+        cin>>moebel_name;
 
+        zimmerListe[i]->getMoebelListe().push_back(moebel_name);
+        cout<<"Skibidi Toilet added"<<endl;
         found = true;
+        }
     }
 
     if(found==false)

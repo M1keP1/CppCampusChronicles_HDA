@@ -1,16 +1,18 @@
 #ifndef VERSICHERER_H
 #define VERSICHERER_H
-#include "vschein.h"
 
+#include <vector>
+#include "vschein.h"
 
 class Versicherer
 {
 public:
     Versicherer();
     void dialog();
-    void add();
+    void nummerpruefen(int sNummer);
 private:
-    vector <Vschein*> versicherungen;
+    vector<Vschein*> versicherungen;
 };
+
 
 #endif // VERSICHERER_H

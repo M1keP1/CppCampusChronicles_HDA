@@ -1,7 +1,0 @@
-/Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug/CMakeFiles/Magazine_SubscriptionSys.dir
-/Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug/CMakeFiles/edit_cache.dir
-/Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug/CMakeFiles/rebuild_cache.dir
-/Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug/CMakeFiles/list_install_components.dir
-/Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug/CMakeFiles/install.dir
-/Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug/CMakeFiles/install/local.dir
-/Users/codex/Documents/GitHub/CppCampusChronicles_HDA/build-Magazine_SubscriptionSys-Qt_6_5_0_for_macOS-Debug/CMakeFiles/install/strip.dir
