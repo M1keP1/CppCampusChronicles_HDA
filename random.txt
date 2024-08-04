@@ -1,0 +1,25 @@
+#include <iostream>
+#include <random>
+
+int main() {
+    int lowerLimit, upperLimit;
+
+    // Get the lower and upper limits from the user
+    std::cout << "Enter the lower limit: ";
+    std::cin >> lowerLimit;
+    std::cout << "Enter the upper limit: ";
+    std::cin >> upperLimit;
+
+    // Initialize random number generator
+    std::random_device rd;  // Obtain a random number from hardware
+    std::mt19937 gen(rd()); // Seed the generator
+    std::uniform_int_distribution<> distr(lowerLimit, upperLimit); // Define the range
+
+    // Generate the random number
+    int randomNumber = distr(gen);
+
+    // Output the random number
+    std::cout << "Random number between " << lowerLimit << " and " << upperLimit << ": " << randomNumber << std::endl;
+
+    return 0;
+}
