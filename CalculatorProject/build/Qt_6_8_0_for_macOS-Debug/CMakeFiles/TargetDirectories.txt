@@ -1,0 +1,13 @@
+/Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/CMakeFiles/CalculatorLib.dir
+/Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/CMakeFiles/CalculatorApp.dir
+/Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/CMakeFiles/edit_cache.dir
+/Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/CMakeFiles/rebuild_cache.dir
+/Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/CMakeFiles/CalculatorLib_autogen_timestamp_deps.dir
+/Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/CMakeFiles/CalculatorLib_autogen.dir
+/Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/CMakeFiles/CalculatorApp_autogen_timestamp_deps.dir
+/Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/CMakeFiles/CalculatorApp_autogen.dir
+/Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/Tests/CMakeFiles/tst_calculator.dir
+/Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/Tests/CMakeFiles/edit_cache.dir
+/Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/Tests/CMakeFiles/rebuild_cache.dir
+/Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/Tests/CMakeFiles/tst_calculator_autogen_timestamp_deps.dir
+/Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/Tests/CMakeFiles/tst_calculator_autogen.dir
