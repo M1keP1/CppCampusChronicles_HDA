@@ -1,0 +1,28 @@
+# ninja log v6
+2	319	1732578020698114823	QWAMLib_autogen/timestamp	a02e6348edf868e1
+1204	1253	1732578021631987434	QWAM_autogen/mocs_compilation.cpp	2f22afd02f3b5a22
+2	319	1732578020698114823	QWAMLib_autogen/mocs_compilation.cpp	a02e6348edf868e1
+2	319	1732578020698114823	/Users/codex/Downloads/KDABLabs kdabtv master Qt-Widgets-and-more-UnitTests/build/Qt_6_8_0_for_macOS-Debug/QWAMLib_autogen/timestamp	a02e6348edf868e1
+1253	1290	1732578021639808621	CMakeFiles/QWAM.dir/QWAM_autogen/mocs_compilation.cpp.o	91b12cefa31a9c90
+1204	1253	1732578021631987434	QWAM_autogen/timestamp	2f22afd02f3b5a22
+1204	1427	1732578021806132146	/Users/codex/Downloads/KDABLabs kdabtv master Qt-Widgets-and-more-UnitTests/build/Qt_6_8_0_for_macOS-Debug/Tests/basics_autogen/timestamp	142424617a2ff1ae
+1204	1253	1732578021631987434	/Users/codex/Downloads/KDABLabs kdabtv master Qt-Widgets-and-more-UnitTests/build/Qt_6_8_0_for_macOS-Debug/QWAM_autogen/timestamp	2f22afd02f3b5a22
+1973	2021	1732578022360512297	QWAM	7f2f290bf7ad5f62
+1204	1427	1732578021806132146	Tests/basics_autogen/timestamp	142424617a2ff1ae
+1204	1427	1732578021806132146	/Users/codex/Downloads/KDABLabs kdabtv master Qt-Widgets-and-more-UnitTests/build/Qt_6_8_0_for_macOS-Debug/Tests/basics_autogen/mocs_compilation.cpp	142424617a2ff1ae
+2	319	1732578020698114823	/Users/codex/Downloads/KDABLabs kdabtv master Qt-Widgets-and-more-UnitTests/build/Qt_6_8_0_for_macOS-Debug/QWAMLib_autogen/mocs_compilation.cpp	a02e6348edf868e1
+1434	1474	1732578021820831825	Tests/CMakeFiles/gadgets.dir/gadgets_autogen/mocs_compilation.cpp.o	a31c8b7175175bb0
+1204	1427	1732578021806132146	Tests/basics_autogen/mocs_compilation.cpp	142424617a2ff1ae
+1427	1458	1732578021814131380	Tests/CMakeFiles/basics.dir/basics_autogen/mocs_compilation.cpp.o	e16e6b4f2c15023c
+1204	1253	1732578021631987434	/Users/codex/Downloads/KDABLabs kdabtv master Qt-Widgets-and-more-UnitTests/build/Qt_6_8_0_for_macOS-Debug/QWAM_autogen/mocs_compilation.cpp	2f22afd02f3b5a22
+1205	1433	1732578021812136155	/Users/codex/Downloads/KDABLabs kdabtv master Qt-Widgets-and-more-UnitTests/build/Qt_6_8_0_for_macOS-Debug/Tests/gadgets_autogen/mocs_compilation.cpp	74e8fa2bc6ac5534
+1253	1973	1732578021640010794	CMakeFiles/QWAM.dir/main.cpp.o	e4fd42f5e5d887a4
+2342	2462	1732578022729491866	Tests/gadgets	ff48dc6e674485aa
+1205	1433	1732578021812136155	Tests/gadgets_autogen/timestamp	74e8fa2bc6ac5534
+2357	2469	1732578022744163628	Tests/basics	8d793e9e37796aa0
+1205	1433	1732578021812136155	/Users/codex/Downloads/KDABLabs kdabtv master Qt-Widgets-and-more-UnitTests/build/Qt_6_8_0_for_macOS-Debug/Tests/gadgets_autogen/timestamp	74e8fa2bc6ac5534
+320	1097	1732578020707107086	CMakeFiles/QWAMLib.dir/QWAMLib_autogen/mocs_compilation.cpp.o	728a0cd49e551265
+1434	2342	1732578021821139793	Tests/CMakeFiles/gadgets.dir/tst_gadgets.cpp.o	e8b5d78bef9559be
+1098	1204	1732578021485530740	libQWAMLib.dylib	39e730a6a139d6c1
+1205	1433	1732578021812136155	Tests/gadgets_autogen/mocs_compilation.cpp	74e8fa2bc6ac5534
+1427	2357	1732578021814312593	Tests/CMakeFiles/basics.dir/tst_basics.cpp.o	18036ddc77be1d6f

@@ -1,0 +1,34 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"Tests/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 0,
+			"id" : "QWAMLib::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "basics_autogen_timestamp_deps::@3e3005ae7443f751ac85",
+	"isGeneratorProvided" : true,
+	"name" : "basics_autogen_timestamp_deps",
+	"paths" : 
+	{
+		"build" : "Tests",
+		"source" : "Tests"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

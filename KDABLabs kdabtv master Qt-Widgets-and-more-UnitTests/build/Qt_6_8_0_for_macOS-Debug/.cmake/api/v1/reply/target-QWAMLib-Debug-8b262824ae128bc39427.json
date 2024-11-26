@@ -1,0 +1,285 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "libQWAMLib.dylib"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries",
+			"set_target_properties",
+			"include",
+			"find_package"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt",
+			"/Users/codex/Qt/6.8.0/macos/lib/cmake/Qt6Core/Qt6CoreTargets.cmake",
+			"/Users/codex/Qt/6.8.0/macos/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
+			"/Users/codex/Qt/6.8.0/macos/lib/cmake/Qt6/Qt6Config.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 11,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 7,
+				"parent" : 0
+			},
+			{
+				"file" : 3,
+				"parent" : 3
+			},
+			{
+				"command" : 4,
+				"file" : 3,
+				"line" : 181,
+				"parent" : 4
+			},
+			{
+				"file" : 2,
+				"parent" : 5
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 57,
+				"parent" : 6
+			},
+			{
+				"file" : 1,
+				"parent" : 7
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 62,
+				"parent" : 8
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-DQT_QML_DEBUG -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -fPIC -fcolor-diagnostics"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 2,
+					"define" : "QT_CORE_LIB"
+				},
+				{
+					"define" : "QWAMLib_EXPORTS"
+				}
+			],
+			"frameworks" : 
+			[
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "/Users/codex/Qt/6.8.0/macos/lib/QtCore.framework"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"path" : "/Users/codex/Downloads/KDABLabs kdabtv master Qt-Widgets-and-more-UnitTests/build/Qt_6_8_0_for_macOS-Debug"
+				},
+				{
+					"path" : "/Users/codex/Downloads/KDABLabs kdabtv master Qt-Widgets-and-more-UnitTests"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "/Users/codex/Downloads/KDABLabs kdabtv master Qt-Widgets-and-more-UnitTests/build/Qt_6_8_0_for_macOS-Debug/QWAMLib_autogen/include"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "/Users/codex/Qt/6.8.0/macos/lib/QtCore.framework/Headers"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "/Users/codex/Qt/6.8.0/macos/mkspecs/macx-clang"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "/Users/codex/Qt/6.8.0/macos/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					2
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"id" : "QWAMLib_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "QWAMLib_autogen::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "QWAMLib::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-F/Users/codex/Qt/6.8.0/macos/lib",
+				"role" : "frameworkPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/Users/codex/Qt/6.8.0/macos/lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/Users/codex/Qt/6.8.0/macos/lib/QtCore.framework/Versions/A/QtCore",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
+				"fragment" : "-framework IOKit",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
+				"fragment" : "-framework DiskArbitration",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
+				"fragment" : "-framework UniformTypeIdentifiers",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "QWAMLib",
+	"nameOnDisk" : "libQWAMLib.dylib",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1,
+				2,
+				3,
+				4
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				5
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				6
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Qt_6_8_0_for_macOS-Debug/QWAMLib_autogen/mocs_compilation.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Gadgets.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "NewWay.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "NewWayUsingNameSpace.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "OriginalWay.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Qt_6_8_0_for_macOS-Debug/QWAMLib_autogen/timestamp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Qt_6_8_0_for_macOS-Debug/QWAMLib_autogen/timestamp.rule",
+			"sourceGroupIndex" : 3
+		}
+	],
+	"type" : "SHARED_LIBRARY"
+}
