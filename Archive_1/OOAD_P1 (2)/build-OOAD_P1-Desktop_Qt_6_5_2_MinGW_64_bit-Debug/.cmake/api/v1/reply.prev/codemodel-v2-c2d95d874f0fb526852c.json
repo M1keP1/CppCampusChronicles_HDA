@@ -1,0 +1,61 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f62cca6f0de4fd979d36.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "OOAD_P1",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "OOAD_P1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-OOAD_P1-Debug-d019fd7cbb681744690c.json",
+					"name" : "OOAD_P1",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug",
+		"source" : "C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/OOAD_P1"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

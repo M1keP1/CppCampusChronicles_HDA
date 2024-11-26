@@ -1,0 +1,21 @@
+# ninja log v5
+0	36	7542857267583781	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir	d4d7b94a8bd423d5
+0	36	7542857267583781	C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir	d4d7b94a8bd423d5
+36	1153	7542857278767435	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download	f5ce590d71add587
+36	1153	7542857278767435	C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download	f5ce590d71add587
+1153	1187	7542857279107512	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update	52c56a84447ffaca
+1153	1187	7542857279107512	C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update	52c56a84447ffaca
+1187	1220	7542857279437587	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch	d290f318af5c9fc7
+1187	1220	7542857279437587	C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch	d290f318af5c9fc7
+1220	1253	7542857279757646	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure	a8ecf73b5bf10d0d
+1220	1253	7542857279757646	C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure	a8ecf73b5bf10d0d
+1253	1286	7542857280097736	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build	691086dd9f8675e
+1253	1286	7542857280097736	C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build	691086dd9f8675e
+1286	1319	7542857280427810	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install	f598457fb8f16405
+1286	1319	7542857280427810	C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install	f598457fb8f16405
+1319	1351	7542857280747882	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test	85cffc3d18512988
+1319	1351	7542857280747882	C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test	85cffc3d18512988
+1351	1396	7542857281187980	CMakeFiles/googletest-populate-complete	df32581be466c7c4
+1351	1396	7542857281187980	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-done	df32581be466c7c4
+1351	1396	7542857281187980	C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/googletest-subbuild/CMakeFiles/googletest-populate-complete	df32581be466c7c4
+1351	1396	7542857281187980	C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-done	df32581be466c7c4

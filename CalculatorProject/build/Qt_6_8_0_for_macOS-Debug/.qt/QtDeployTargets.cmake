@@ -1,6 +1,0 @@
-set(__QT_DEPLOY_TARGET_tst_calculator_FILE /Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/Tests/tst_calculator)
-set(__QT_DEPLOY_TARGET_tst_calculator_TYPE EXECUTABLE)
-set(__QT_DEPLOY_TARGET_CalculatorLib_FILE /Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/libCalculatorLib.dylib)
-set(__QT_DEPLOY_TARGET_CalculatorLib_TYPE SHARED_LIBRARY)
-set(__QT_DEPLOY_TARGET_CalculatorApp_FILE /Users/codex/Documents/CalculatorProject/build/Qt_6_8_0_for_macOS-Debug/CalculatorApp)
-set(__QT_DEPLOY_TARGET_CalculatorApp_TYPE EXECUTABLE)

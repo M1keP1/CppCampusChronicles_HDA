@@ -1,0 +1,23 @@
+# ninja log v5
+4	321	7542101958966140	CMakeFiles/OOAD_P1.dir/token.cpp.obj	dfac8ce72d3c08e3
+0	554	7542101961294487	CMakeFiles/OOAD_P1.dir/main.cpp.obj	75259101bc767cff
+794	1067	7542101966389715	OOAD_P1.exe	2e1f56bc7a3d167f
+7	793	7542101963684046	CMakeFiles/OOAD_P1.dir/calculator.cpp.obj	10767e8b34af92a6
+15	339	7542863378127375	CMakeFiles/calculator_test.dir/token.cpp.obj	a9720087713a4fc1
+9	340	7542863378137377	CMakeFiles/OOAD_P1.dir/token.cpp.obj	f6c695275a329dcc
+11	619	7542863380978174	CMakeFiles/OOAD_P1.dir/main.cpp.obj	c9f199ecba0245e
+3	911	7542863383877929	CMakeFiles/OOAD_P1.dir/calculator.cpp.obj	2bba8e1947ddea4e
+13	932	7542863384087964	CMakeFiles/calculator_test.dir/calculator.cpp.obj	8e8b50037ef8e700
+912	1127	7542863386008467	OOAD_P1.exe	2e1f56bc7a3d167f
+27	1364	7542863388432658	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	19aa2b1909792785
+6	1445	7542863389242846	CMakeFiles/calculator_test.dir/calculator_test.cpp.obj	b0a6a7a4ee1d0c82
+21	1595	7542863390752719	_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj	97909d25139eb566
+18	2419	7542863398947577	_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj	dcebb4d5785f408b
+24	5273	7542863427401488	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	a2a51caa3645a57d
+5274	7719	7542863451975957	lib/libgtest.a	22c626681de26a7c
+7724	7762	7542863452426057	lib/libgtest_main.a	b366359e99070e44
+7719	8055	7542863455341865	lib/libgmock.a	59c1f2bff7b7fa0e
+8055	8097	7542863455771977	lib/libgmock_main.a	d8d3e836324d139
+7763	10452	7542863479303507	calculator_test.exe	bed9aa26f37cb844
+7763	10452	7542863479303507	calculator_test[1]_tests.cmake	bed9aa26f37cb844
+7763	10452	7542863479303507	C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/calculator_test[1]_tests.cmake	bed9aa26f37cb844

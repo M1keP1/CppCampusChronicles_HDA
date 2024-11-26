@@ -1,0 +1,3 @@
+C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
+C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
+C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir

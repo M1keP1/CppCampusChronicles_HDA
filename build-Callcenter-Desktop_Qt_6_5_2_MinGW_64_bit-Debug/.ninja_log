@@ -1,8 +1,0 @@
-# ninja log v5
-3	411	7444807071866186	CMakeFiles/Callcenter.dir/termin.cpp.obj	75653db0cce0e82f
-0	435	7444807072141296	CMakeFiles/Callcenter.dir/main.cpp.obj	4b134e46d1744144
-5	493	7444807072714421	CMakeFiles/Callcenter.dir/artztpraxis.cpp.obj	a736a494f0eeea7b
-8	516	7444807072952804	CMakeFiles/Callcenter.dir/callcenter.cpp.obj	5e180c09c8f1540a
-516	639	7444807074141750	Callcenter.exe	f68491eb91471a99
-2	402	7444808141063163	CMakeFiles/Callcenter.dir/callcenter.cpp.obj	5e180c09c8f1540a
-403	533	7444808142312309	Callcenter.exe	f68491eb91471a99

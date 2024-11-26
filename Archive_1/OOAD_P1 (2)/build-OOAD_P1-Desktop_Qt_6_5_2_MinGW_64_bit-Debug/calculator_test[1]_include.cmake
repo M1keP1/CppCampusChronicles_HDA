@@ -1,0 +1,5 @@
+if(EXISTS "C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/calculator_test[1]_tests.cmake")
+  include("C:/Users/Mihir/Documents/GitHub/CppCampusChronicles_HDA/OOAD_P1 (2)/build-OOAD_P1-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/calculator_test[1]_tests.cmake")
+else()
+  add_test(calculator_test_NOT_BUILT calculator_test_NOT_BUILT)
+endif()
