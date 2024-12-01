@@ -3,64 +3,91 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>
-
+#include <QMessageBox>
+#include <QInputDialog>
+#include <QDialog>
+using namespace std;
 // Constructor
 Navigationssystem::Navigationssystem()
 {
     // Default home address (MeinOrt)
     meinOrt = new Adresse(49.86682, 8.639912, "MeinOrt", "Schöfferstraße", 3, "64295", "Darmstadt");
-    meinOrt->setId(0);  // ID for MeinOrt
+    meinOrt->setId(0);
 }
 
-// Destructor
+
 Navigationssystem::~Navigationssystem()
 {
-    // Clean up the allocated memory for addresses and locations
+
     for (auto ort : karte) {
         delete ort;
     }
     delete meinOrt;
 }
 
-// Function to create a new location (address or POI)
-void Navigationssystem::ortAnlegen(const std::string& name, double lat, double lon)
+
+void Navigationssystem::ortAnlegen()
 {
-    // Ask for location type (Adresse or POI)
-    std::string typ;
-    std::cout << "Ortstyp (Adresse/POI): ";
-    std::cin >> typ;
+
+    QString name = QInputDialog::getText(nullptr, "Ort anlegen", "Name des Ortes:");
+    if (name.isEmpty()) return;
+
+    QString latitudeText = QInputDialog::getText(nullptr, "Ort anlegen", "Breitengrad:");
+    QString longitudeText = QInputDialog::getText(nullptr, "Ort anlegen", "Längengrad:");
+
+    bool latitudeOk, longitudeOk;
+    double latitude = latitudeText.toDouble(&latitudeOk);
+    double longitude = longitudeText.toDouble(&longitudeOk);
+
+    if (!latitudeOk || !longitudeOk || latitude < -90 || latitude > 90 || longitude < -180 || longitude > 180) {
+       QMessageBox::warning(nullptr, "Ungültige Eingabe", "Bitte geben Sie gültige Koordinaten ein.");
+       return;
+    }
+
+
+    QStringList typeOptions = {"Adresse", "POI"};
+    bool ok;
+    QString typ = QInputDialog::getItem(nullptr, "Ortstyp wählen", "Wählen Sie den Ortstyp:", typeOptions, 0, false, &ok);
+    if (!ok) return;
 
     if (typ == "Adresse") {
-        std::string str, plz, gemeinde;
-        int hausnummer;
-        std::cout << "Strasse: ";
-        std::cin >> str;
-        std::cout << "Hausnummer: ";
-        std::cin >> hausnummer;
-        std::cout << "Postleitzahl: ";
-        std::cin >> plz;
-        std::cout << "Gemeinde: ";
-        std::cin >> gemeinde;
 
-        // Add a new address to the map
-        Adresse* newAdresse = new Adresse(lat, lon, name, str, hausnummer, plz, gemeinde);
+        QString str = QInputDialog::getText(nullptr, "Adresse", "Straße:");
+        if (str.isEmpty()) return;
+
+        bool hausnummerOk;
+        int hausnummer = QInputDialog::getInt(nullptr, "Adresse", "Hausnummer:", 1, 1, 10000, 1, &hausnummerOk);
+        if (!hausnummerOk) return;
+
+        QString plz = QInputDialog::getText(nullptr, "Adresse", "Postleitzahl:");
+        if (plz.isEmpty()) return;
+
+        QString gemeinde = QInputDialog::getText(nullptr, "Adresse", "Gemeinde:");
+        if (gemeinde.isEmpty()) return;
+
+
+        Adresse* newAdresse = new Adresse(latitude, longitude, name.toStdString(), str.toStdString(), hausnummer, plz.toStdString(), gemeinde.toStdString());
         karte.push_back(newAdresse);
+        return;
     } else if (typ == "POI") {
-        std::string kat, bem;
-        std::cout << "Kategorie: ";
-        std::cin >> kat;
-        std::cout << "Bemerkung: ";
-        std::cin >> bem;
 
-        // Add a new POI to the map
-        PoI* newPoI = new PoI(lat, lon, name, kat, bem);
+        QString kat = QInputDialog::getText(nullptr, "POI", "Kategorie:");
+        if (kat.isEmpty()) return;
+
+        QString bem = QInputDialog::getText(nullptr, "POI", "Bemerkung:");
+        if (bem.isEmpty()) return;
+
+
+        PoI* newPoI = new PoI(latitude, longitude, name.toStdString(), kat.toStdString(), bem.toStdString());
         karte.push_back(newPoI);
+
+
     } else {
-        std::cout << "Ungültiger Ortstyp!" << std::endl;
+
+        QMessageBox::warning(nullptr, "Ungültiger Ortstyp", "Bitte geben Sie einen gültigen Ortstyp (Adresse oder POI) ein.");
     }
 }
 
-// Function to display the map with all locations
 std::string Navigationssystem::karteAnzeigen() const
 {
     std::ostringstream oss;
@@ -73,7 +100,7 @@ std::string Navigationssystem::karteAnzeigen() const
     oss << "ID | Typ | Name          | Latitude   | Longitude   | Parameters\n";
     oss << "---------------------------------------------------------------\n";
 
-    // Display MeinOrt
+
     if (meinOrt) {
         auto adresse = dynamic_cast<Adresse*>(meinOrt);
         if (adresse) {
@@ -83,7 +110,7 @@ std::string Navigationssystem::karteAnzeigen() const
         }
     }
 
-    // Display other locations
+
     for (const auto& ort : karte) {
         oss << std::setw(2) << ort->getId() << " | ";
 
@@ -103,13 +130,13 @@ std::string Navigationssystem::karteAnzeigen() const
     return oss.str();
 }
 
-// Function to calculate the distance between two locations
+
 double Navigationssystem::entfernungBerechnen(int id1, int id2)
 {
     Ort* ort1 = nullptr;
     Ort* ort2 = nullptr;
 
-    // Check for MeinOrt if ID is 0
+
     if (id1 == 0) ort1 = meinOrt;
     if (id2 == 0) ort2 = meinOrt;
 
@@ -127,15 +154,15 @@ double Navigationssystem::entfernungBerechnen(int id1, int id2)
     }
 }
 
-// Function to move MeinOrt to a new location
+
 void Navigationssystem::meinOrtVerschieben(double latitude, double longitude)
 {
-    delete meinOrt;  // Free the old memory
+    delete meinOrt;
     meinOrt = new Adresse(latitude, longitude, "MeinOrt", "Schöfferstraße", 3, "64295", "Darmstadt");
     std::cout << "MeinOrt wurde verschoben." << std::endl;
 }
 
-// Function to save the map to a file
+
 void Navigationssystem::karteSpeichern()
 {
     std::ofstream outFile("karte.txt");
@@ -180,7 +207,7 @@ void Navigationssystem::karteLaden()
             ss >> typ;
 
             double lat, lon;
-            ss >> lat >> lon;  // Read latitude and longitude
+            ss >> lat >> lon;
 
             if (typ == "Adresse") {
                 std::string name, str, plz, gemeinde;

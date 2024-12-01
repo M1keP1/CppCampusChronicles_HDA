@@ -6,19 +6,35 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>401</width>
+    <width>447</width>
     <height>335</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Comic Sans MS</family>
+    <pointsize>12</pointsize>
+    <bold>true</bold>
+   </font>
+  </property>
+  <property name="cursor">
+   <cursorShape>CrossCursor</cursorShape>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="windowOpacity">
+   <double>100000.000000000000000</double>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QLabel" name="label">
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
       <property name="text">
-       <string>NaVBase Propreitary </string>
+       <string>::::::::::::::::::::::::::::::NavBase Propreitary Systems :::::::::::::::::::::::::::::::::::</string>
       </property>
      </widget>
     </item>
@@ -30,21 +46,21 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton1_show">
+     <widget class="QPushButton" name="pushButton_show">
       <property name="text">
        <string>Show All Locations</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton1_calc">
+     <widget class="QPushButton" name="pushButton_calc">
       <property name="text">
        <string>Calculate Distance</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton1_change">
+     <widget class="QPushButton" name="pushButton_change">
       <property name="text">
        <string>Change Home</string>
       </property>
@@ -66,8 +82,11 @@
     </item>
     <item>
      <widget class="QLabel" name="label_2">
+      <property name="cursor">
+       <cursorShape>CrossCursor</cursorShape>
+      </property>
       <property name="text">
-       <string>Sentinel 1c</string>
+       <string>Downlink&lt;---------------------------------------- Sentinel-1B</string>
       </property>
      </widget>
     </item>
@@ -78,7 +97,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>401</width>
+     <width>447</width>
      <height>24</height>
     </rect>
    </property>
