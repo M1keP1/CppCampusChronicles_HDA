@@ -19,19 +19,23 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton1_clicked();
+
 
     void on_pushButton_new_clicked();
 
-    void on_pushButton1_show_clicked();
+    void on_pushButton_show_clicked();
 
-    void on_pushButton1_calc_clicked();
+    void on_pushButton_calc_clicked();
 
-    void on_pushButton1_change_clicked();
+    void on_pushButton_change_clicked();
 
     void on_pushButton_save_clicked();
 
     void on_pushButton_exit_clicked();
+
+
+
+
 
 private:
     Ui::MainWindow *ui;

@@ -13,13 +13,12 @@ public:
     Navigationssystem();
     ~Navigationssystem();
 
-    // Modified to take parameters
-    void ortAnlegen(const std::string& name, double latitude, double longitude);  // Add a new location with given parameters
-    std::string karteAnzeigen() const;  // Display all locations and return as a string
-    double entfernungBerechnen(int id1, int id2);  // Calculate distance between two locations by their IDs
-    void meinOrtVerschieben(double latitude, double longitude);   // Move MeinOrt to new coordinates
-    void karteSpeichern();       // Save the map to a file
-    void karteLaden();           // Load the map from a file
+    void ortAnlegen();
+    std::string karteAnzeigen() const;
+    double entfernungBerechnen(int id1, int id2);
+    void meinOrtVerschieben(double latitude, double longitude);
+    void karteSpeichern();
+    void karteLaden();
 
 private:
     std::vector<Ort*> karte;  // List of all locations (Adresse and PoI)
