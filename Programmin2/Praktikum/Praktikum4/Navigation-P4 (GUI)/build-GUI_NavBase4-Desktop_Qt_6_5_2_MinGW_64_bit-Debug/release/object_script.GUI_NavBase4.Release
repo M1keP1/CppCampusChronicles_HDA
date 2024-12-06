@@ -1,0 +1,10 @@
+release/adresse.o
+release/main.o
+release/navigationssystem.o
+release/ort.o
+release/poi.o
+release/mainwindow.o
+release/qdynamicbutton.o
+release/qrc_resource.o
+release/moc_mainwindow.o
+release/moc_qdynamicbutton.o

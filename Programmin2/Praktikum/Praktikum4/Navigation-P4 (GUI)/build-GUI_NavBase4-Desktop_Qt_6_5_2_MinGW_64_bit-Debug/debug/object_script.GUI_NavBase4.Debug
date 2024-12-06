@@ -1,0 +1,10 @@
+debug/adresse.o
+debug/main.o
+debug/navigationssystem.o
+debug/ort.o
+debug/poi.o
+debug/mainwindow.o
+debug/qdynamicbutton.o
+debug/qrc_resource.o
+debug/moc_mainwindow.o
+debug/moc_qdynamicbutton.o
