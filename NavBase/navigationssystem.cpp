@@ -315,7 +315,24 @@ void Navigationssystem::createGraph() {
         }
     }
 }
+void Navigationssystem::updateNeighbors() {
+    for (const auto& ort : karte) {
+        int ortId = ort->getId();
 
+        // Clear the existing neighbors_id
+        ort->cleanNeighbors();
+
+        // Retrieve neighbors from the graph
+        if (graph.find(ortId) != graph.end()) {
+            const auto& neighbors = graph.at(ortId);
+
+            // Update neighbors_id for the current Ort
+            for (size_t i = 0; i < neighbors.size(); ++i) {
+                ort->setNeighbors_id(i, neighbors[i].first); // Set neighbor ID
+            }
+        }
+    }
+}
 void Navigationssystem::clearKarte()
 {
     karte.clear();

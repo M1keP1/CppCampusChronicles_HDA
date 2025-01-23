@@ -23,7 +23,7 @@ public:
     void setId(int newId);
     std::vector<int> neighbors_id;
 
-
+    void cleanNeighbors();
     std::vector<int> getNeighbors_id() const;
     void setNeighbors_id(int pos,int id);
 

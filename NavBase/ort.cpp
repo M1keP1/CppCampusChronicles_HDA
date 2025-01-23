@@ -57,13 +57,20 @@ void Ort::setId(int newId)
     id = newId;
 }
 
+void Ort::cleanNeighbors()
+{
+    neighbors_id.clear();
+}
+
 std::vector<int> Ort::getNeighbors_id() const
 {
     return neighbors_id;
 }
 
-void Ort::setNeighbors_id(int pos,int id)
+void Ort::setNeighbors_id(int pos, int id)
 {
-    neighbors_id[pos]=id;
+    if (pos >= neighbors_id.size()) {
+        neighbors_id.resize(pos + 1); // Resize the vector to fit the position
+    }
+    neighbors_id[pos] = id;
 }
-

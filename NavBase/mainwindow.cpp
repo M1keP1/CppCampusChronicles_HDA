@@ -277,6 +277,7 @@ void MainWindow::addRadioButton(Ort* ort)
 
 void MainWindow::onInfoButtonClicked()
 {
+    navSys->updateNeighbors();
     if (selectedRadioButtons.size() != 1) {
         QMessageBox::warning(this, "No Point Selected", "Please select exactly one point to view its information.");
         return;
@@ -408,6 +409,8 @@ void MainWindow::on_pushButton_new_clicked() {
     }
 
     addRadioButton(newOrt);
+    displayGraphOnMap();
+    displayGraphOnMap();
 
 }
 

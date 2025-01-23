@@ -31,7 +31,7 @@ public:
     void ortDel(Ort* ort);
     void createGraph();
     void clearKarte();
-
+    void updateNeighbors();
     vector<Ort *> getKarte() const;
 
     map<int, vector<pair<int, double> > > getGraph() const;
