@@ -57,3 +57,13 @@ void Ort::setId(int newId)
     id = newId;
 }
 
+std::vector<int> Ort::getNeighbors_id() const
+{
+    return neighbors_id;
+}
+
+void Ort::setNeighbors_id(int pos,int id)
+{
+    neighbors_id[pos]=id;
+}
+

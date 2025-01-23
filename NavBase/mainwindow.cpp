@@ -8,7 +8,7 @@
 #include <QPainter>
 #include <map>
 #include <algorithm>
-
+static bool mapLoaded = false;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -30,6 +30,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_exit, SIGNAL(clicked()), this, SLOT(on_pushButton_exit_clicked()));
     connect(ui->pushButton_Info, &QPushButton::clicked, this, &MainWindow::onInfoButtonClicked);
     connect(ui->pushButton_Del, &QPushButton::clicked, this, &::MainWindow::on_pushButton_Del_clicked);
+    connect(ui->pushButton_network,SIGNAL(clicked()), this, SLOT(displayGraphOnMap()));
+    connect(ui->pushButton_route,SIGNAL(clicked()), this, SLOT(routeBetweenPlaces()));
+    connect(ui->pushButton_initials,SIGNAL(clicked()), this, SLOT(on_initials()));
 
 }
 
@@ -125,6 +128,7 @@ void MainWindow::on_pushButton_calc_clicked()
 
     // Show the distance in a message box
     QMessageBox::information(this, "Distance", QString("The distance between the selected points is: %1 km").arg(distance));
+    clearSelectedRadioButtons();
 }
 double MainWindow::calculateDistance(const GPS &point1, const GPS &point2) {
     const double R = 6371.0; // Earth radius in kilometers
@@ -160,21 +164,45 @@ void MainWindow::on_pushButton_save_clicked()
     bool ok;
     QString choice = QInputDialog::getItem(this, "Speichern/Laden", "Wählen Sie eine Option:", options, 0, false, &ok);
 
-        if (!ok) return;
+    if (!ok) return;
 
     if (choice == "Karte speichern") {
-        navSys->karteSpeichern();
-        QMessageBox::information(this, "Speichern", "Karte wurde gespeichert!");
-    } else if (choice == "Karte laden") {
-        navSys->karteLaden();
-        for(auto ort: navSys->getKarte())
-        {
-            addRadioButton(ort);
+        // Ask the user for the file name to save the map
+        QString filename = QInputDialog::getText(this, "Speichern", "Geben Sie den Dateinamen ein:", QLineEdit::Normal);
+        if (!filename.isEmpty()) {
+            navSys->karteSpeichern(filename.toStdString());  // Pass the filename to the save function
+            QMessageBox::information(this, "Speichern", "Karte wurde gespeichert!");
         }
-        QMessageBox::information(this, "Laden", "Karte wurde geladen!");
+    } else if (choice == "Karte laden") {
+        // Ask if the user wants to save the current map before loading a new one
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this, "Karte speichern", "Möchten Sie die aktuelle Karte speichern?",
+                                      QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
+
+        if (reply == QMessageBox::Yes) {
+            // Ask for the file name to save
+            QString filename = QInputDialog::getText(this, "Speichern", "Geben Sie den Dateinamen ein:", QLineEdit::Normal);
+            if (!filename.isEmpty()) {
+                navSys->karteSpeichern(filename.toStdString());  // Save the current map
+                QMessageBox::information(this, "Speichern", "Karte wurde gespeichert!");
+            }
+        } else if (reply == QMessageBox::Cancel) {
+            // Cancel loading if the user doesn't want to save
+            return;
+        }
+
+        // Load the new map
+        QString filename = QInputDialog::getText(this, "Laden nach speichern", "Geben Sie den Dateinamen ein:", QLineEdit::Normal);
+        if (!filename.isEmpty()) {
+            navSys->karteLaden(filename.toStdString());  // Pass the filename to load the map
+            // Reload the radio buttons for the new map
+            for (auto ort : navSys->getKarte()) {
+                addRadioButton(ort);
+            }
+            QMessageBox::information(this, "Laden", "Karte wurde geladen!");
+        }
     }
 }
-
 
 void MainWindow::on_pushButton_exit_clicked()
 {
@@ -191,10 +219,11 @@ Pixel MainWindow::mapGPStoPixel(GPS gps) {
     double xRatio = (gps.longitude - topLeftGPS.longitude) /
                     (bottomRightGPS.longitude - topLeftGPS.longitude);
     xRatio *= 0.95;
+
     // Calculate yRatio based on latitude range from topLeftGPS to bottomLeftGPS
     double yRatio = (topLeftGPS.latitude - gps.latitude) /
                     (topLeftGPS.latitude - bottomLeftGPS.latitude);
-
+    yRatio*=0.95;
     // Map to pixel space using map dimensions
     int x = static_cast<int>(xRatio * mapWidth);
     int y = static_cast<int>(yRatio * mapHeight);
@@ -224,12 +253,25 @@ void MainWindow::addRadioButton(Ort* ort)
 
     // Create a new radio button
     QRadioButton *radioButton = new QRadioButton(ui->label);
-    radioButton->setText(QString::fromStdString(ort->getName())); // Set the name of the place as text
-    radioButton->setStyleSheet("background-color: rgba(255, 255, 255, 180); border-radius: 5px;");
-    radioButton->setGeometry(pixel.x, pixel.y, 150, 30); // Position on the map
+
+    // Set the text of the radio button
+    radioButton->setText(QString::fromStdString(ort->getName()));
+    radioButton->setStyleSheet("background-color: transparent; border: none;");
+
+    int buttonRadius = 15;
+    int centerX = pixel.x - buttonRadius;
+    int centerY = pixel.y - buttonRadius;
+
+
+    radioButton->setGeometry(centerX, centerY, 70, 30);
+
+    // Assign a property for identification
     radioButton->setProperty("ort_id", ort->getId());
 
+    // Connect the button to the click event
     connect(radioButton, &QRadioButton::clicked, this, &MainWindow::onRadioButtonClicked);
+
+    // Show the button
     radioButton->show();
 }
 
@@ -240,17 +282,52 @@ void MainWindow::onInfoButtonClicked()
         return;
     }
 
-    // Show information about the selected point
+    // Retrieve the selected point
     const Ort* selectedPoint = getOrtfromID(findIdByRadioButton(selectedRadioButtons[0]));
-    QString infoText = QString("Selected Point Info:\nLatitude: %1\nLongitude: %2")
-                           .arg(selectedPoint->getLatitude())
-                           .arg(selectedPoint->getLongitude());
+    if (!selectedPoint) {
+        QMessageBox::warning(this, "Error", "Selected point not found.");
+        return;
+    }
 
-    QMessageBox::information(this, "Selected Point Info", infoText);
+    // Gather point details
+    QString selectedPointInfo = QString(
+                                    "Selected Point:\n"
+                                    "Name: %1\n"
+                                    "ID: %2\n"
+                                    "Latitude: %3\n"
+                                    "Longitude: %4"
+                                    ).arg(QString::fromStdString(selectedPoint->getName()))
+                                    .arg(selectedPoint->getId())
+                                    .arg(selectedPoint->getLatitude())
+                                    .arg(selectedPoint->getLongitude());
+
+    // Gather neighbor details
+    QString neighborsInfo;
+    if (!selectedPoint->neighbors_id.empty()) {
+        neighborsInfo = "Direct Neighbors:\n";
+        for (int neighborId : selectedPoint->getNeighbors_id()) {
+            const Ort* neighborPoint = getOrtfromID(neighborId);
+            if (neighborPoint) {
+                double distance = navSys->entfernungBerechnen(selectedPoint->getId(), neighborId);
+                neighborsInfo += QString("- Name: %1 (ID: %2) - Distance: %3 km\n")
+                                     .arg(QString::fromStdString(neighborPoint->getName()))
+                                     .arg(neighborId)
+                                     .arg(distance, 0, 'f', 2);
+            }
+        }
+    } else {
+        neighborsInfo = "This point has no direct neighbors.";
+    }
+
+    // Combine everything in one block
+    QString infoText = selectedPointInfo + "\n\n" + neighborsInfo;
+
+    // Display the information
+    QMessageBox::information(this, "Point Information", infoText);
+
+    // Clear selected radio buttons
+    clearSelectedRadioButtons();
 }
-
-
-
 GPS MainWindow::getSelectedPoint() const
 {
     return selectedPoint;
@@ -269,7 +346,7 @@ void MainWindow::on_pushButton_Del_clicked()
     }
     QList<QRadioButton *> radioButtons = ui->label->findChildren<QRadioButton *>();
     for (QRadioButton *button : radioButtons) {
-        button->deleteLater();  // Safely delete all existing radio buttons
+        button->deleteLater();
     }
     for(auto ort: navSys->getKarte())
     {
@@ -279,10 +356,48 @@ void MainWindow::on_pushButton_Del_clicked()
 
     selectedPoints.clear();
     selectedRadioButtons.clear();
-
-    QMessageBox::information(this, "Points Deleted", "Selected points have been deleted.");
+    clearSelectedRadioButtons();
+    displayGraphOnMap();
+    displayGraphOnMap();
 }
 
+void MainWindow::on_initials()
+{
+    static bool mapLoaded = false; // Static variable to track if the map has been loaded
+
+    if (mapLoaded) {
+        // Debug: Map is already loaded, clearing the map
+        qDebug() << "Map is already loaded. Clearing the map...";
+
+        // Clear the map if it's already loaded
+        clearMap();  // Call the clear function to remove buttons and lines
+
+        mapLoaded = false;  // Reset the mapLoaded flag
+
+        // Debug: Map has been cleared
+        qDebug() << "Map cleared.";
+    } else {
+        // Debug: Loading the map for the first time
+        qDebug() << "Loading the map...";
+
+        // Load the map if it hasn't been loaded yet
+        navSys->karteLaden("karte.txt");  // Pass the filename to load the map
+
+        // Debug: After loading the map
+        qDebug() << "Map loaded. Adding radio buttons for the new map.";
+
+        // Reload the radio buttons for the new map
+        for (auto ort : navSys->getKarte()) {
+            addRadioButton(ort);  // Add radio buttons to the map
+            qDebug() << "Added radio button for Ort: " << ort->getName();
+        }
+
+        mapLoaded = true;  // Set the flag to indicate the map is loaded
+
+        // Debug: Radio buttons added
+        qDebug() << "All radio buttons added.";
+    }
+}
 
 
 void MainWindow::on_pushButton_new_clicked() {
@@ -294,48 +409,17 @@ void MainWindow::on_pushButton_new_clicked() {
 
     addRadioButton(newOrt);
 
-    std::map<int, double> dist;
-
-
-    // Calculate distances to existing locations
-    for (auto& x : navSys->getKarte()) {
-        dist[x->getId()] = navSys->entfernungBerechnen(newOrt->getId(), x->getId());
-    }
-
-
-    // Sort distances
-    std::vector<std::pair<int, double>> dist_vec(dist.begin(), dist.end());
-    std::sort(dist_vec.begin(), dist_vec.end(), [](const std::pair<int, double>& a, const std::pair<int, double>& b) {
-        return a.second < b.second;
-    });
-
-    // Find and draw lines to the closest points
-    QRadioButton* point1 = nullptr;
-    QRadioButton* point2 = nullptr;
-
-    if (dist_vec.size() >= 2) {
-        point1 = findRadioButtonById(newOrt->getId());
-        point2 = findRadioButtonById(dist_vec[1].first);
-    } else if (dist_vec.size() == 1) {
-        point1 = findRadioButtonById(dist_vec[1].first);
-    }
-
-    // Draw the lines
-    if (point1 && point2) {
-        drawLineBetweenButtons(point1, point2);
-    } else if (point1) {
-        QMessageBox::information(this, "Hinweis", "Nur ein Ort verfügbar, Linie wird nicht gezeichnet.");
-    }
 }
 
-void MainWindow::drawLineBetweenButtons(QRadioButton* button1, QRadioButton* button2) {
+void MainWindow::drawLineBetweenButtons(QRadioButton* button1, QRadioButton* button2, const QColor& lineColor = Qt::red) {
     if (!button1 || !button2) return;
 
     QRect rect1 = button1->geometry();
     QRect rect2 = button2->geometry();
 
-    QPoint startPoint = rect1.center();
-    QPoint endPoint = rect2.center();
+    // Calculate the left-center points of the buttons
+    QPoint startPoint = rect1.topLeft() + QPoint(rect1.width() / 2, rect1.height() / 2);  // Left-center of button 1
+    QPoint endPoint = rect2.topLeft() + QPoint(rect2.width() / 2, rect2.height() / 2);    // Left-center of button 2
 
     // Debugging geometry values
     qDebug() << "Point 1 :" << findIdByRadioButton(button1);
@@ -353,7 +437,7 @@ void MainWindow::drawLineBetweenButtons(QRadioButton* button1, QRadioButton* but
     }
 
     QPainter painter(&pixmap);
-    QPen pen(Qt::red, 2);
+    QPen pen(lineColor, 2);  // Use the color passed as an argument
     painter.setPen(pen);
     painter.drawLine(startPoint, endPoint);
     painter.end();
@@ -388,4 +472,131 @@ Ort *MainWindow::getOrtfromID(int id)
             return x;
         }
     }
+    return nullptr;
 }
+
+void MainWindow::displayGraphOnMap() {
+    static bool isGraphDisplayed = false; // Static variable to track graph visibility
+
+    // If the graph is already displayed, clear the map and set the flag to false
+    if (isGraphDisplayed) {
+        reload_background();
+
+        isGraphDisplayed = false;
+        return;
+    }
+
+
+
+    std::map<int, QRadioButton*> radioButtons;
+    QList<QRadioButton *> radiobuttons = ui->label->findChildren<QRadioButton *>();
+    for (QRadioButton *button : radiobuttons) {
+        button->deleteLater();  // Safely delete all existing radio buttons
+    }
+    // Add all Orte as radio buttons to the map
+    for (const auto& ort : navSys->getKarte()) {
+        addRadioButton(ort);
+        QRadioButton* radioButton = findRadioButtonById(ort->getId());
+        if (radioButton) {
+            radioButtons[ort->getId()] = radioButton;
+        }
+    }
+
+    navSys->createGraph();
+    const auto& graph = navSys->getGraph(); // Access the graph
+    for (const auto& node : graph) {
+        int fromId = node.first;
+        const auto& neighbors = node.second;
+
+        QRadioButton* fromButton = radioButtons[fromId];
+        if (!fromButton) continue; // Skip if the button is missing
+
+        for (const auto& edge : neighbors) {
+            int toId = edge.first;
+            QRadioButton* toButton = radioButtons[toId];
+            if (toButton) {
+                drawLineBetweenButtons(fromButton, toButton);
+            }
+        }
+    }
+
+    // Set the flag to true indicating the graph is now displayed
+    isGraphDisplayed = true;
+}
+void MainWindow::routeBetweenPlaces() {
+    // Get the selected radio buttons
+    navSys->createGraph();
+    QRadioButton* startButton = selectedRadioButtons[0];
+    QRadioButton* endButton = selectedRadioButtons[1];
+
+    if (!startButton || !endButton) {
+        QMessageBox::warning(this, "Fehler", "Bitte wählen Sie zwei Orte aus.");
+        return;
+    }
+
+    int startId = findIdByRadioButton(startButton);
+    int endId = findIdByRadioButton(endButton);
+
+    std::vector<int> path = navSys->findShortestPath(startId, endId);
+
+    for (size_t i = 0; i < path.size() - 1; ++i) {
+        // Find the corresponding radio buttons for the current and next place in the path
+        int fromId = path[i];
+        int toId = path[i + 1];
+
+        QRadioButton* fromButton = findRadioButtonById(fromId);
+        QRadioButton* toButton = findRadioButtonById(toId);
+
+        if (fromButton && toButton) {
+
+            drawLineBetweenButtons(fromButton, toButton, Qt::blue);
+        }
+    }
+
+    QString message = "Kürzester Pfad:\n";
+    double totalDistance = 0.0;
+    for (size_t i = 0; i < path.size() - 1; ++i) {
+        int fromId = path[i];
+        int toId = path[i + 1];
+        double distance = navSys->entfernungBerechnen(fromId, toId);
+        totalDistance += distance;
+
+        message += QString::fromStdString(getOrtfromID(fromId)->getName()) + " -> ";
+    }
+    message += QString::fromStdString(getOrtfromID(path.back())->getName());
+    message += QString("\nGesamtdistanz: %1 km").arg(totalDistance);
+
+    QMessageBox::information(this, "Route", message);
+    clearSelectedRadioButtons();
+
+}
+void MainWindow::clearMap() {
+    navSys->clearKarte();
+    clearSelectedRadioButtons();
+
+    QList<QRadioButton *> radioButtons = ui->label->findChildren<QRadioButton *>();
+    for (QRadioButton *button : radioButtons) {
+        button->deleteLater();  // Safely delete all existing radio buttons
+    }
+    RadioButtons.clear();
+
+    reload_background();
+
+}
+void MainWindow::clearSelectedRadioButtons() {
+    // Clear the selectedRadioButtons list
+    selectedRadioButtons.clear();
+
+    // Unselect all radio buttons on the map
+    for (auto* radioButton : ui->label->findChildren<QRadioButton*>()) {
+        radioButton->setChecked(false);
+    }
+}
+
+void MainWindow::reload_background()
+{
+    QPixmap pixmap(":/img/img/map.png");
+
+    ui->label->setPixmap(pixmap);
+}
+

@@ -7,6 +7,10 @@
 #include <QInputDialog>
 #include <QDialog>
 #include <QRadioButton>
+#include <set>
+#include <filesystem> // For directory handling
+#include<QDir>
+namespace fs = std::filesystem;
 using namespace std;
 // Constructor
 Navigationssystem::Navigationssystem()
@@ -160,9 +164,17 @@ void Navigationssystem::meinOrtVerschieben(double latitude, double longitude)
 }
 
 
-void Navigationssystem::karteSpeichern()
-{
-    ofstream outFile("karte.txt");
+// Save the map to a specified file
+void Navigationssystem::karteSpeichern(const std::string& filename) {
+    QString baseDir = QDir::homePath() + "/myApp/karten";  // Create folder in the user's home directory or elsewhere
+    QDir dir(baseDir);
+    if (!dir.exists()) {
+        dir.mkpath(".");
+    }
+
+    std::string filePath = (baseDir + "/" + QString::fromStdString(filename)).toStdString();
+
+    ofstream outFile(filePath);
     if (outFile.is_open()) {
         for (auto ort : karte) {
             if (auto adresse = dynamic_cast<Adresse*>(ort)) {
@@ -186,17 +198,28 @@ void Navigationssystem::karteSpeichern()
             }
         }
         outFile.close();
-        cout << "Karte gespeichert!" << endl;
+        cout << "Karte erfolgreich unter \"" << filePath << "\" gespeichert!" << endl;
     } else {
         cout << "Fehler beim Speichern der Karte!" << endl;
     }
 }
 
-// Function to load the map from a file
-void Navigationssystem::karteLaden()
-{
-    ifstream inFile("karte.txt");
+// Load the map from a specified file
+void Navigationssystem::karteLaden(const std::string& filename) {
+    namespace fs = std::filesystem;
+    QString baseDir = QDir::homePath() + "/myApp/karten";  // Create folder in the user's home directory or elsewhere
+    QDir dir(baseDir);
+    if (!dir.exists()) {
+        dir.mkpath(".");
+    }
+
+    std::string filePath = (baseDir + "/" + QString::fromStdString(filename)).toStdString();
+
+    ifstream inFile(filePath);
     if (inFile.is_open()) {
+        // Clear the current map
+        karte.clear();
+
         string line;
         while (getline(inFile, line)) {
             istringstream ss(line);
@@ -208,31 +231,26 @@ void Navigationssystem::karteLaden()
             double lat, lon;
             ss >> id >> lat >> lon;
 
-            // Process POI
             if (typ == "POI") {
                 string name, kat, bem;
                 ss >> name >> kat;
-                getline(ss, bem);  // Read the remainder of the line as the 'bem' (remark/description)
+                getline(ss, bem);  // Read the remainder of the line as 'bem'
 
-                // Add POI to the map
                 karte.push_back(new PoI(lat, lon, name, kat, bem));
-
-            }
-            // Process Adresse if needed (not changed in this example)
-            else if (typ == "Adresse") {
+            } else if (typ == "Adresse") {
                 string name, str, plz, gemeinde;
                 int hausnummer;
                 ss >> name >> str >> hausnummer >> plz >> gemeinde;
+
                 karte.push_back(new Adresse(lat, lon, name, str, hausnummer, plz, gemeinde));
             }
         }
         inFile.close();
-        cout << "Karte geladen!" << endl;
+        cout << "Karte erfolgreich aus \"" << filePath << "\" geladen!" << endl;
     } else {
-        cout << "Fehler beim Laden der Karte!" << endl;
+        cout << "Fehler beim Laden der Karte! Datei \"" << filePath << "\" nicht gefunden." << endl;
     }
 }
-
 void Navigationssystem::ortDel(Ort* ort)
 {
     for (auto it = karte.begin(); it != karte.end(); ++it)
@@ -251,4 +269,102 @@ void Navigationssystem::ortDel(Ort* ort)
 vector<Ort *> Navigationssystem::getKarte() const
 {
     return karte;
+}
+
+map<int, vector<pair<int, double> > > Navigationssystem::getGraph() const
+{
+    return graph;
+}
+
+
+void Navigationssystem::createGraph() {
+    graph.clear(); // Reset the graph
+
+    for (const auto& ort : karte) {
+        std::map<int, double> distances;
+
+        // Calculate distances from the current place to all other places
+        for (const auto& neighbor : karte) {
+            if (ort->getId() != neighbor->getId()) {
+                distances[neighbor->getId()] = ort->berechneEntfernung(*neighbor);
+            }
+        }
+
+        // Sort distances to find the closest nodes
+        std::vector<std::pair<int, double>> sortedDistances(distances.begin(), distances.end());
+        std::sort(sortedDistances.begin(), sortedDistances.end(), [](const auto& a, const auto& b) {
+            return a.second < b.second; // Sort by distance in ascending order
+        });
+
+        // Add top 3 closest nodes to the graph
+        for (size_t i = 0; i < std::min<size_t>(3, sortedDistances.size()); ++i) {
+            int neighborId = sortedDistances[i].first;
+            double distance = sortedDistances[i].second;
+
+            auto& neighbors = graph[ort->getId()];
+            auto& reverseNeighbors = graph[neighborId];
+
+            // Check if the edge already exists (bidirectional check)
+            bool edgeExists = std::any_of(neighbors.begin(), neighbors.end(),
+                                          [&](const auto& edge) { return edge.first == neighborId; });
+
+            if (!edgeExists) {
+                neighbors.emplace_back(neighborId, distance);
+                reverseNeighbors.emplace_back(ort->getId(), distance); // Reverse edge for bidirectional connections
+            }
+        }
+    }
+}
+
+void Navigationssystem::clearKarte()
+{
+    karte.clear();
+}
+
+
+std::vector<int> Navigationssystem::findShortestPath(int startId, int endId) {
+    std::map<int, double> distances;       // Stores distances to each node
+    std::map<int, int> previousNodes;      // Keeps track of the shortest path
+    std::set<std::pair<double, int>> pq;   // Priority queue: {distance, nodeId}
+
+    // Initialize distances
+    for (const auto& node : graph) {
+        distances[node.first] = std::numeric_limits<double>::infinity();
+        previousNodes[node.first] = -1;
+    }
+
+    distances[startId] = 0.0;
+    pq.insert({0.0, startId});
+
+    while (!pq.empty()) {
+        int currentNode = pq.begin()->second;
+        pq.erase(pq.begin());
+
+        // If we reach the target, stop
+        if (currentNode == endId) break;
+
+        // Traverse neighbors
+        for (const auto& neighbor : graph[currentNode]) {
+            int neighborId = neighbor.first;
+            double weight = neighbor.second;
+
+            // Calculate new potential distance
+            double newDist = distances[currentNode] + weight;
+            if (newDist < distances[neighborId]) {
+                pq.erase({distances[neighborId], neighborId});  // Remove outdated distance
+                distances[neighborId] = newDist;
+                previousNodes[neighborId] = currentNode;
+                pq.insert({newDist, neighborId});
+            }
+        }
+    }
+
+    // Reconstruct the path
+    std::vector<int> path;
+    for (int at = endId; at != -1; at = previousNodes[at]) {
+        path.push_back(at);
+    }
+    std::reverse(path.begin(), path.end());
+
+    return path;
 }

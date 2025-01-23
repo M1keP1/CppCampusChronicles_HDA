@@ -37,10 +37,13 @@ public:
     GPS selectedPoint ;
     QRadioButton* findRadioButtonById(int id);
     Ort* getOrtfromID(int id);
-
+    void clearMap();
+    void clearSelectedRadioButtons();
+    void reload_background();
 private slots :
-
-    void drawLineBetweenButtons(QRadioButton *button1, QRadioButton *button2);
+    void displayGraphOnMap();
+    void routeBetweenPlaces();
+    void drawLineBetweenButtons(QRadioButton* button1, QRadioButton* button2, const QColor& lineColor) ;
     void addRadioButton( Ort* ort);
 
     void on_pushButton_new_clicked();
@@ -59,6 +62,7 @@ private slots :
     void onRadioButtonClicked(bool checked);
 
     void on_pushButton_Del_clicked();
+    void on_initials();
 private:
     int findIdByRadioButton(QRadioButton* button);
     GPS topLeftGPS = {55, 6};

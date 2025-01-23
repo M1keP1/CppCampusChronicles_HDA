@@ -1,6 +1,7 @@
 #ifndef NAVIGATIONSSYSTEM_H
 #define NAVIGATIONSSYSTEM_H
 #include <QString>
+#include <map>
 
 #include "ort.h"
 #include "adresse.h"
@@ -25,13 +26,18 @@ public:
     string karteAnzeigen() const;
     double entfernungBerechnen(int id1, int id2);
     void meinOrtVerschieben(double latitude, double longitude);
-    void karteSpeichern();
-    void karteLaden();
+    void karteSpeichern(const std::string& filename);
+    void karteLaden(const std::string& filename);
     void ortDel(Ort* ort);
+    void createGraph();
+    void clearKarte();
 
     vector<Ort *> getKarte() const;
 
+    map<int, vector<pair<int, double> > > getGraph() const;
+    vector<int> findShortestPath(int startId, int endId);
 private:
+    map<int, vector<pair<int, double>>> graph;
     vector<Ort*> karte;  // List of all locations (Adresse and PoI)
     Ort* meinOrt;             // Specific location for MeinOrt (initial location)
 };

@@ -1,0 +1,21 @@
+POI 1 48.1351 11.5820 München Bayerische Hauptstadt Sehenswürdigkeiten in München
+POI 2 52.5200 13.4050 Berlin Hauptstadt Deutschlands Sehenswürdigkeiten in Berlin
+POI 3 50.1109 8.6821 Frankfurt Finanzzentrum
+POI 4 53.5511 9.9937 Hamburg Hansestadt
+POI 5 51.1657 10.4515 Deutschland Geografisches Zentrum
+POI 6 48.7758 9.1829 Stuttgart Kulturstadt
+POI 7 50.9375 6.9603 Köln Domstadt
+POI 8 49.4875 8.4660 Heidelberg Altstadt
+POI 9 51.0504 13.7373 Dresden Historische Stadt
+POI 10 52.3792 9.7187 Hannover Messe Stadt
+POI 11 51.0440 13.7463 Leipzig Musikstadt
+POI 12 51.2194 6.9780 Düsseldorf Modehauptstadt
+POI 13 48.7072 9.1675 Ulm Münsterstadt
+POI 14 50.7374 7.1007 Mainz Gutenbergstadt
+POI 15 51.9505 6.2905 Dortmund Fußballstadt
+POI 16 48.7753 9.1829 Aalen Ostalbkreis
+POI 17 48.5700 10.0395 Passau Dreiflüssestadt
+POI 18 47.6726 9.1793 Konstanz Bodensee
+POI 19 51.7465 14.3219 Cottbus Spreewaldstadt
+POI 20 54.3010 7.7622 Lange Anna Helgoland
+POI 21 49.8710 8.6332 h_da Hochschule Darmstadt
